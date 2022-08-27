@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
-import { Breadcrumb, Layout, Menu } from 'antd';
+import { Layout, Menu } from 'antd';
 import { DesktopOutlined, YuqueOutlined } from '@ant-design/icons';
 
 import 'antd/dist/antd.css';
 import './style.css';
+
+import CryptoCard from './CryptoCard';
 
 const { Header, Content, Footer, Sider } = Layout;
 
@@ -66,7 +68,7 @@ const App = () => {
               margin: '16px 0',
             }}
           >
-            Bill is a cat.
+            <CryptoCard />
           </div>
         </Content>
         <Footer
