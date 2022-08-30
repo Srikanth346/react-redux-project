@@ -12,7 +12,8 @@
     "react-native": ">=0.59",
     "react-redux": "^8.0.2",
     "reduce-reducers": "^1.0.4",
-    "redux": "^4"
+    "redux": "^4",
+    "redux-thunk": "^2.4.1"
   },
   "scripts": {
     "start": "react-scripts start",

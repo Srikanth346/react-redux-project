@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
-import { Layout, Menu } from 'antd';
+import { Layout, Menu, Spin } from 'antd';
+import { useDispatch, useSelector } from 'react-redux';
 import { DesktopOutlined, YuqueOutlined } from '@ant-design/icons';
 
+import { getAppInfo } from './Actions';
 import CryptoCard from './CryptoCard';
 
 const { Header, Content, Footer, Sider } = Layout;
@@ -22,6 +24,14 @@ const items = [
 
 const MainApp = () => {
   const [collapsed, setCollapsed] = useState(true);
+
+  const dispatch = useDispatch();
+  const dataFetched = useSelector((state) => state?.fetched);
+  const loader = useSelector((state) => state?.fetching);
+
+  if (!dataFetched) {
+    dispatch(getAppInfo());
+  }
 
   return (
     <Layout
@@ -65,7 +75,9 @@ const MainApp = () => {
               margin: '16px 0',
             }}
           >
-            <CryptoCard />
+            <Spin spinning={loader}>
+              <CryptoCard />
+            </Spin>
           </div>
         </Content>
         <Footer
