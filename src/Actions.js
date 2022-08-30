@@ -3,7 +3,6 @@ export const getAppInfo = () => {
     const state = getState();
     const dataFetched = state?.fetched || false;
     const dataFetching = state?.fetching || false;
-    console.log('new value ', state);
     if (!dataFetched && !dataFetching) {
       dispatch({ type: 'DATA_FETCHING', value: true });
       fetch('https://api.opensea.io/api/v1/assets?format=json')
