@@ -46,13 +46,14 @@ const CryptoCard = () => {
             const imageUrl = value['image_preview_url'];
             return (
               <Col
+                key={value.id}
                 lg={{ span: 5, offset: 1 }}
                 xs={{ span: 20, offset: 2 }}
                 md={{ span: 7, offset: 1 }}
                 sm={{ span: 11, offset: 1 }}
               >
                 <Card
-                  key={index}
+                  key={value?.id || index}
                   hoverable
                   style={{
                     width: '100%',
